@@ -18,7 +18,7 @@ public class JdbTemplateCustomerRepositoryIntegrationTest extends AbstractIntegr
 
     @org.junit.Test
     public void findCustomerById() {
-        List<InvoiceDTO> invoices = jdbcTemplateCustomerRepository.findInvoiceByCustomerAndAddress(1L, 1L,5);
+        List<InvoiceDTO> invoices = jdbcTemplateCustomerRepository.findInvoicesByCustomerAndAddress(1L, 1L, 5);
         assertEquals(2,invoices.size());
     }
 

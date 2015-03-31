@@ -23,7 +23,7 @@ public class JdbcTemplateCustomerRepository {
 
     private static final String QUERY = "select c.customer_id, a.address_id, i.invoice_id,i.invoice_type, i.invoice_date, i.payment_due_date, i.invoice_number, i.start_date, i.end_date, i.amount, i.vat_amount from customer c inner join address a on c.customer_id = a.cust_id inner join invoice i on i.addr_id = a.address_id where c.customer_id = ? and a.address_id = ? and MONTH(i.start_date) = ?";
 
-    public List<InvoiceDTO> findInvoiceByCustomerAndAddress(Long customerId, Long addressId, Integer month) {
+    public List<InvoiceDTO> findInvoicesByCustomerAndAddress(Long customerId, Long addressId, Integer month) {
         List<InvoiceDTO> results = jdbcTemplate.query(
                 QUERY, new Object[]{customerId, addressId, month},
                 new RowMapper<InvoiceDTO>() {

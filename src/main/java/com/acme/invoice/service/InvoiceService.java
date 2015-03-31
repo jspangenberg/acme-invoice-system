@@ -4,15 +4,14 @@ import com.acme.invoice.dto.InvoiceDTO;
 import com.acme.invoice.entity.Address;
 import com.acme.invoice.entity.Customer;
 import com.acme.invoice.entity.Invoice;
+import com.acme.invoice.repository.AddressRepository;
 import com.acme.invoice.repository.CustomerRepository;
 import com.acme.invoice.repository.JdbcTemplateCustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author John Spangenberg
@@ -22,6 +21,9 @@ public class InvoiceService  {
 
     @Autowired
     CustomerRepository customerRepository;
+
+    @Autowired
+    AddressRepository addressRepository;
 
     @Autowired
     JdbcTemplateCustomerRepository jdbcTemplateCustomerRepository;
@@ -46,7 +48,30 @@ public class InvoiceService  {
     }
 
     public List<InvoiceDTO> getInvoices(Long customerId, Long addressId, Integer month) {
-        return jdbcTemplateCustomerRepository.findInvoiceByCustomerAndAddress(customerId, addressId, month);
+        return jdbcTemplateCustomerRepository.findInvoicesByCustomerAndAddress(customerId, addressId, month);
+    }
+
+    public List<InvoiceDTO> create(InvoiceDTO invoiceDTO) {
+
+        Address address = addressRepository.findOne(invoiceDTO.getAddressId());
+
+        if (address != null) {
+            Invoice newInvoice = new Invoice(invoiceDTO.getInvoiceType(),
+                    invoiceDTO.getInvoiceDate(),
+                    invoiceDTO.getPaymentDueDate(),
+                    invoiceDTO.getStartDate(),
+                    invoiceDTO.getEndDate(),
+                    invoiceDTO.getAmount(),
+                    invoiceDTO.getVatAmount(),
+                    invoiceDTO.getInvoiceNumber());
+            address.getInvoices().add(newInvoice);
+            addressRepository.save(address);
+        }
+
+        return getInvoices(invoiceDTO.getCustomerId());
+
+
+
     }
 
     private void convert(List<InvoiceDTO> invoiceDTOs, Customer customer) {
