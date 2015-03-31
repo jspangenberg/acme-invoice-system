@@ -1,0 +1,58 @@
+[
+    {
+        "customerId": 1,
+        "addressId": 1,
+        "invoiceId": 1,
+        "invoiceType": "AdvancePayment",
+        "invoiceDate": "2015-04-15",
+        "paymentDueDate": "2015-04-30",
+        "invoiceNumber": 157005888,
+        "startDate": "2015-05-01",
+        "endDate": "2015-06-01",
+        "amount": 165.29,
+        "vatAmount": 34.71,
+        "totalAmount": 200.0
+    },
+    {
+        "customerId": 1,
+        "addressId": 1,
+        "invoiceId": 2,
+        "invoiceType": "AdvancePayment",
+        "invoiceDate": "2015-04-15",
+        "paymentDueDate": "2015-04-30",
+        "invoiceNumber": 157005889,
+        "startDate": "2015-05-01",
+        "endDate": "2015-06-01",
+        "amount": 165.29,
+        "vatAmount": 34.71,
+        "totalAmount": 200.0
+    },
+    {
+        "customerId": 2,
+        "addressId": 2,
+        "invoiceId": 3,
+        "invoiceType": "AdvancePayment",
+        "invoiceDate": "2015-04-15",
+        "paymentDueDate": "2015-04-30",
+        "invoiceNumber": 167005888,
+        "startDate": "2015-05-01",
+        "endDate": "2015-06-01",
+        "amount": 165.29,
+        "vatAmount": 34.71,
+        "totalAmount": 200.0
+    },
+    {
+        "customerId": 2,
+        "addressId": 2,
+        "invoiceId": 4,
+        "invoiceType": "AdvancePayment",
+        "invoiceDate": "2015-04-15",
+        "paymentDueDate": "2015-04-30",
+        "invoiceNumber": 167005889,
+        "startDate": "2015-05-01",
+        "endDate": "2015-06-01",
+        "amount": 165.29,
+        "vatAmount": 34.71,
+        "totalAmount": 200.0
+    }
+]
