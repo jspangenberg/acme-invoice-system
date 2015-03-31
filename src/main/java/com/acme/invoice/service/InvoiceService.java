@@ -76,17 +76,12 @@ public class InvoiceService  {
 
     private void convert(List<InvoiceDTO> invoiceDTOs, Customer customer) {
         if (customer != null) {
-
-
             List<Address> addresses = customer.getAddresses();
-
             for (Address address: addresses) {
-
                 for (Invoice invoice: address.getInvoices()) {
                     InvoiceDTO invoiceDTO = new InvoiceDTO();
                     invoiceDTO.setCustomerId(customer.getId());
                     invoiceDTO.setAddressId(address.getId());
-
                     invoiceDTO.setInvoiceId(invoice.getId());
                     invoiceDTO.setInvoiceType(invoice.getInvoiceType());
                     invoiceDTO.setInvoiceDate(invoice.getInvoiceDate());
