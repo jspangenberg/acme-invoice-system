@@ -38,6 +38,7 @@ and run the JAR by typing:
 
 Using the REST API
 ==================
+Examples:
 
 Getting all invoices
 
@@ -51,6 +52,7 @@ Getting all invoices for a customer for a certain address and for a particular m
 (May in this example):
 
     GET: http://localhost:8080/sysapi/v1/invoices?customerId=1&addressId=1&month=5
+    GET: http://localhost:8080/sysapi/v1/invoices?customerId=1&addressId=1&month=5&filter=shop
 
 Creating a new invoice (not tested yet)
 
