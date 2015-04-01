@@ -28,6 +28,11 @@ public class InvoiceService  {
     @Autowired
     JdbcTemplateCustomerRepository jdbcTemplateCustomerRepository;
 
+    /**
+     *
+     * @param customerId
+     * @return
+     */
     public List<InvoiceDTO> getInvoices(Long customerId) {
         List<InvoiceDTO> invoiceDTOs = new ArrayList<InvoiceDTO>();
         Customer customer = customerRepository.findOne(customerId);
@@ -36,6 +41,10 @@ public class InvoiceService  {
         return invoiceDTOs;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<InvoiceDTO> getInvoices() {
         List<InvoiceDTO> invoiceDTOs = new ArrayList<InvoiceDTO>();
 
@@ -47,10 +56,22 @@ public class InvoiceService  {
         return invoiceDTOs;
     }
 
+    /**
+     *
+     * @param customerId
+     * @param addressId
+     * @param month
+     * @return
+     */
     public List<InvoiceDTO> getInvoices(Long customerId, Long addressId, Integer month) {
         return jdbcTemplateCustomerRepository.findInvoicesByCustomerAndAddress(customerId, addressId, month);
     }
 
+    /**
+     *
+     * @param invoiceDTO
+     * @return
+     */
     public List<InvoiceDTO> create(InvoiceDTO invoiceDTO) {
 
         Address address = addressRepository.findOne(invoiceDTO.getAddressId());

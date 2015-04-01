@@ -22,6 +22,14 @@ public class InvoiceController {
     @Autowired
     com.acme.invoice.service.InvoiceService invoiceService;
 
+    /**
+     *
+     * @param customerId
+     * @param addressId
+     * @param month
+     * @param filter
+     * @return
+     */
     @RequestMapping(value="sysapi/v1/invoices", method=RequestMethod.GET)
     public List<InvoiceDTO> invoices(@RequestParam(value="customerId", required=false) Long customerId,
                                      @RequestParam(value="addressId", required=false) Long addressId,
@@ -45,6 +53,11 @@ public class InvoiceController {
         return invoiceDTOs;
     }
 
+    /**
+     *
+     * @param invoice
+     * @return
+     */
     @RequestMapping(value="sysapi/v1/invoices/create", method=RequestMethod.POST)
     public List<InvoiceDTO> create(@RequestBody InvoiceDTO invoice) {
         return invoiceService.create(invoice);
