@@ -1,5 +1,20 @@
 ACME Invoice System
 ===================
+The ACME Invoice System provides a REST API for retrieval of customer invoices.
+Invoice data is persisted in a relational database system and mapped to Entity classes
+using JPA. Via Service and Repository classes (and interfaces), a REST controller
+has access to invoice data.
+The application uses Spring Boot, which makes it easy to create stand-alone,
+production-grade Spring based Applications that you can "just run".
+
+The physical relational data model consistens of three tables. CUSTOMER has a ONE-TO-MANY
+relation with ADDRESS. ADDRESS has a ONE-TO-MANY relation with invoice:
+
+    CUSTOMER --< ADDRESS --< INVOICE
+
+The db script can be found in:
+
+    acme-invoice-system/src/main/resources/db/migration/V1__init.sql
 
 Software requirements
 =====================
