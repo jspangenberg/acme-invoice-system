@@ -56,7 +56,7 @@ Getting all invoices for a customer for a certain address and for a particular m
 
 Creating a new invoice (not tested yet)
 
-    POST: http://localhost:8080/sysapi/v1/invoices/create
+    POST: http://localhost:8080/sysapi/v1/invoice
 
 
 TO-DOs (enhancements for upcoming releases)

@@ -58,7 +58,7 @@ public class InvoiceController {
      * @param invoice
      * @return
      */
-    @RequestMapping(value="sysapi/v1/invoices/create", method=RequestMethod.POST)
+    @RequestMapping(value="sysapi/v1/invoice", method=RequestMethod.POST)
     public List<InvoiceDTO> create(@RequestBody InvoiceDTO invoice) {
         return invoiceService.create(invoice);
     }
